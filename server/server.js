@@ -9,7 +9,7 @@ const app = express()
 
 // Replace with your mongoLab URI
 const MONGO_URI =
-  "mongodb+srv://jameem:liverpool111@cluster0.dai9f.mongodb.net/Lyrical?retryWrites=true&w=majority"
+  "mongodb+srv://jameem:liverpool111@cluster0.dai9f.mongodb.net/lyrical?retryWrites=true&w=majority"
 if (!MONGO_URI) {
   throw new Error("You must provide a MongoLab URI")
 }
@@ -20,7 +20,7 @@ mongoose.connection
   .once("open", () => console.log("Connected to MongoLab instance."))
   .on("error", (error) => console.log("Error connecting to MongoLab:", error))
 
-app.use(bodyParser.json())
+app.use(express.json())
 app.use(
   "/graphql",
   expressGraphQL({
